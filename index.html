@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Vocal Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#0d0d12;
+      --card:#171720;
+      --primary:#8b5cf6;
+      --primary-light:#b794ff;
+      --gold:#f4c95d;
+      --text:#ffffff;
+      --muted:#b7b7c7;
+      --border:rgba(255,255,255,0.08);
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      background:rgba(13,13,18,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.4rem;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:var(--primary-light);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:linear-gradient(to right,var(--primary),var(--primary-light));
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:black;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:600px;
+      height:600px;
+      background:rgba(139,92,246,0.2);
+      border-radius:50%;
+      filter:blur(120px);
+      top:-100px;
+      right:-150px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-family:'Montserrat',sans-serif;
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-text h1 span{
+      color:var(--primary-light);
+    }
+
+    .hero-text p{
+      color:var(--muted);
+      font-size:1.1rem;
+      margin-bottom:35px;
+      max-width:550px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .hero-image{
+      position:relative;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:30px;
+      object-fit:cover;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:2.5rem;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
+    }
+
+    /* CARDS */
+
+    .grid{
+      display:grid;
+      gap:25px;
+    }
+
+    .three{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .card{
+      background:var(--card);
+      padding:35px;
+      border-radius:24px;
+      border:1px solid var(--border);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(139,92,246,0.4);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    /* PROCESS */
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .step{
+      text-align:center;
+      background:var(--card);
+      padding:35px 25px;
+      border-radius:24px;
+      border:1px solid var(--border);
+    }
+
+    .step-number{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:linear-gradient(to right,var(--primary),var(--primary-light));
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:auto auto 20px;
+      font-weight:700;
+      font-size:1.2rem;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonial{
+      background:linear-gradient(180deg,#171720,#111117);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:40px;
+    }
+
+    .testimonial p{
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+
+    .testimonial h4{
+      color:var(--gold);
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(to right,#151525,#1d1137);
+      border-radius:35px;
+      padding:80px 30px;
+      border:1px solid var(--border);
+    }
+
+    .cta h2{
+      font-size:3rem;
+      margin-bottom:20px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .cta p{
+      color:var(--muted);
+      margin-bottom:35px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      color:var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .hero-grid,
+      .three,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:120px;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .section-title h2{
+        font-size:2rem;
+      }
+
+      .cta h2{
+        font-size:2.2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-wrapper">
+      <div class="logo">
+        The <span>Vocal Academy</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Programs</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Contact</a>
+        <a href="#" class="btn btn-primary">Enroll Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-text">
+        <h1>
+          Discover Your <span>True Voice</span>
+        </h1>
+
+        <p>
+          Personalized online vocal training designed to help beginners
+          and aspiring singers build confidence, improve technique,
+          and finally learn how to sing beautifully.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Start Learning</a>
+          <a href="#" class="btn btn-outline">Free Vocal Assessment</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" alt="Singer">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>You Can Learn to Sing</h2>
+        <p>
+          Singing is not just talent — it’s a skill that can be trained.
+          At The Vocal Academy, we help students unlock confidence,
+          vocal control, and authentic expression through guided online coaching.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT YOU LEARN -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>What You’ll Learn</h2>
+        <p>
+          Our online training focuses on building a strong,
+          confident, and expressive singing voice.
+        </p>
+      </div>
+
+      <div class="grid three">
+
+        <div class="card">
+          <h3>Breath Control</h3>
+          <p>
+            Learn proper breathing techniques that strengthen your vocals and improve endurance.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Pitch Accuracy</h3>
+          <p>
+            Train your ears and voice to sing on key with confidence and consistency.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Vocal Confidence</h3>
+          <p>
+            Overcome fear, self-doubt, and become comfortable using your voice.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Tone Improvement</h3>
+          <p>
+            Develop a richer, clearer, and more expressive vocal sound.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Performance Skills</h3>
+          <p>
+            Learn stage presence, vocal expression, and emotional delivery.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Vocal Technique</h3>
+          <p>
+            Build healthy vocal habits and learn professional singing techniques.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>How Online Training Works</h2>
+        <p>
+          A simple step-by-step journey designed to help you grow consistently.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Book Assessment</h3>
+          <p>
+            Start with a vocal evaluation to understand your current level.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Get Your Plan</h3>
+          <p>
+            Receive a personalized vocal growth roadmap based on your goals.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Train Online</h3>
+          <p>
+            Attend live online coaching sessions from anywhere in the world.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Track Progress</h3>
+          <p>
+            Improve your vocals week after week with guided support.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Who This Is For</h2>
+        <p>
+          Whether you’re just starting or chasing your singing dream,
+          The Vocal Academy is built for you.
+        </p>
+      </div>
+
+      <div class="grid three">
+
+        <div class="card">
+          <h3>Complete Beginners</h3>
+          <p>
+            Perfect for anyone who has always wanted to learn how to sing.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Worship Singers</h3>
+          <p>
+            Improve vocal control, harmony, and confidence during ministry.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Aspiring Artists</h3>
+          <p>
+            Develop professional-level vocal ability and artistic identity.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Student Experiences</h2>
+        <p>
+          Real transformation through consistent vocal training.
+        </p>
+      </div>
+
+      <div class="grid three">
+
+        <div class="testimonial">
+          <p>
+            “I never believed I could sing confidently until I joined The Vocal Academy.”
+          </p>
+          <h4>— Sarah M.</h4>
+        </div>
+
+        <div class="testimonial">
+          <p>
+            “My pitch, confidence, and vocal strength improved within weeks.”
+          </p>
+          <h4>— Daniel K.</h4>
+        </div>
+
+        <div class="testimonial">
+          <p>
+            “The online classes are easy to follow and incredibly motivating.”
+          </p>
+          <h4>— Esther A.</h4>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+
+      <div class="cta">
+        <h2>Your Voice Matters</h2>
+
+        <p>
+          Start your vocal journey today and discover the singer within you.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Join The Vocal Academy
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 The Vocal Academy • Online Vocal Training
+    </div>
+  </footer>
+
+</body>
+</html>
