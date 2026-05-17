@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programs | The Vocal Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#0d0d12;
+      --card:#171720;
+      --primary:#8b5cf6;
+      --primary-light:#b794ff;
+      --gold:#f4c95d;
+      --text:#ffffff;
+      --muted:#b7b7c7;
+      --border:rgba(255,255,255,0.08);
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      background:rgba(13,13,18,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.4rem;
+      font-weight:800;
+    }
+
+    .logo span{
+      color:var(--primary-light);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:linear-gradient(to right,var(--primary),var(--primary-light));
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:black;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:80vh;
+      display:flex;
+      align-items:center;
+      padding-top:120px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:600px;
+      height:600px;
+      background:rgba(139,92,246,0.18);
+      border-radius:50%;
+      filter:blur(120px);
+      top:-150px;
+      right:-150px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-family:'Montserrat',sans-serif;
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-text h1 span{
+      color:var(--primary-light);
+    }
+
+    .hero-text p{
+      color:var(--muted);
+      margin-bottom:35px;
+      font-size:1.1rem;
+      max-width:600px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:30px;
+      object-fit:cover;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* SECTION TITLES */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:2.7rem;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
+    }
+
+    /* MAIN PROGRAM */
+
+    .program-box{
+      background:linear-gradient(180deg,#171720,#101015);
+      border:1px solid var(--border);
+      border-radius:35px;
+      padding:60px;
+    }
+
+    .program-box h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .program-box p{
+      color:var(--muted);
+      margin-bottom:40px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .feature{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      padding:22px;
+      border-radius:18px;
+    }
+
+    .feature h3{
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+
+    .feature p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* LEVELS */
+
+    .levels{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+    }
+
+    .level-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:40px 30px;
+      transition:0.3s;
+    }
+
+    .level-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(139,92,246,0.4);
+    }
+
+    .level-card h3{
+      margin-bottom:20px;
+      font-size:1.5rem;
+    }
+
+    .level-card p{
+      color:var(--muted);
+    }
+
+    /* SCHEDULE */
+
+    .schedule{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .day{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:35px 25px;
+      text-align:center;
+    }
+
+    .day h3{
+      color:var(--primary-light);
+      margin-bottom:15px;
+      font-size:1.4rem;
+    }
+
+    .day p{
+      color:var(--muted);
+    }
+
+    /* PRICING */
+
+    .pricing{
+      max-width:700px;
+      margin:auto;
+      background:linear-gradient(to right,#151525,#1d1137);
+      border-radius:35px;
+      padding:70px 40px;
+      border:1px solid var(--border);
+      text-align:center;
+    }
+
+    .pricing h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:3rem;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:4rem;
+      font-weight:800;
+      color:var(--gold);
+      margin:20px 0;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .pricing p{
+      color:var(--muted);
+      margin-bottom:30px;
+    }
+
+    .pricing ul{
+      list-style:none;
+      margin-bottom:40px;
+    }
+
+    .pricing ul li{
+      margin-bottom:15px;
+      color:#d8d8e8;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+    }
+
+    .cta h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .cta p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto auto 35px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      color:var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .hero-grid,
+      .levels,
+      .schedule,
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .section-title h2,
+      .pricing h2,
+      .cta h2{
+        font-size:2.2rem;
+      }
+
+      .program-box{
+        padding:40px 25px;
+      }
+
+      .price{
+        font-size:3rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        The <span>Vocal Academy</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/program/">Programs</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training." target="_blank" class="btn btn-primary">Enroll Now</a>
+      </div>
+
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div class="hero-text">
+
+        <h1>
+          Online <span>Vocal Growth</span> Training
+        </h1>
+
+        <p>
+          A focused online vocal training program designed to help students
+          improve singing ability, strengthen the voice, and build vocal confidence
+          through consistent guided practice.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">
+            Join The Academy
+          </a>
+
+          <a href="#" class="btn btn-outline">
+            Book Assessment
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" alt="Online Vocal Training">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN PROGRAM -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Vocal Growth Program</h2>
+
+        <p>
+          We focus entirely on helping students grow their singing voice through
+          structured online vocal training sessions.
+        </p>
+
+      </div>
+
+      <div class="program-box">
+
+        <h2>What’s Included</h2>
+
+        <p>
+          Students attend live online classes every week where we focus on
+          strengthening the voice, improving vocal control, and developing
+          healthy singing techniques.
+        </p>
+
+        <div class="features">
+
+          <div class="feature">
+            <h3>4 Classes Per Week</h3>
+            <p>
+              Consistent weekly training designed for steady vocal improvement.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>1 Hour Per Session</h3>
+            <p>
+              Focused live online coaching sessions with guided exercises.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Monthly Enrollment</h3>
+            <p>
+              Students join through a simple monthly subscription model.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Live Online Training</h3>
+            <p>
+              Learn from anywhere through interactive virtual classes.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Breath Control Training</h3>
+            <p>
+              Develop proper breathing techniques for stronger singing.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Voice Strengthening</h3>
+            <p>
+              Build vocal power, flexibility, and vocal confidence.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LEVELS -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Training Levels</h2>
+
+        <p>
+          Students grow progressively based on their vocal ability and improvement.
+        </p>
+
+      </div>
+
+      <div class="levels">
+
+        <div class="level-card">
+
+          <h3>Beginner Level</h3>
+
+          <p>
+            For students learning basic vocal control, breathing,
+            pitch accuracy, and singing confidence.
+          </p>
+
+        </div>
+
+        <div class="level-card">
+
+          <h3>Intermediate Level</h3>
+
+          <p>
+            Focused on improving vocal strength, consistency,
+            range, and vocal flexibility.
+          </p>
+
+        </div>
+
+        <div class="level-card">
+
+          <h3>Advanced Level</h3>
+
+          <p>
+            Designed for singers refining tone, control,
+            vocal expression, and technical precision.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WEEKLY SCHEDULE -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Weekly Training Schedule</h2>
+
+        <p>
+          Each week is structured to help students consistently improve different areas of the voice.
+        </p>
+
+      </div>
+
+      <div class="schedule">
+
+        <div class="day">
+
+          <h3>Monday</h3>
+
+          <p>
+            Breath control and vocal warmups.
+          </p>
+
+        </div>
+
+        <div class="day">
+
+          <h3>Tuesday</h3>
+
+          <p>
+            Pitch training and vocal accuracy exercises.
+          </p>
+
+        </div>
+
+        <div class="day">
+
+          <h3>Thursday</h3>
+
+          <p>
+            Voice strengthening and vocal range development.
+          </p>
+
+        </div>
+
+        <div class="day">
+
+          <h3>Friday</h3>
+
+          <p>
+            Vocal techniques and guided singing practice.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+  <section>
+
+    <div class="container">
+
+      <div class="pricing">
+
+        <h2>Monthly Membership</h2>
+
+        <div class="price">$XX</div>
+
+        <p>
+          Full access to weekly live online vocal training sessions.
+        </p>
+
+        <ul>
+          <li>✔ 4 Live Classes Weekly</li>
+          <li>✔ 1 Hour Per Session</li>
+          <li>✔ Vocal Growth Exercises</li>
+          <li>✔ Beginner Friendly</li>
+          <li>✔ Online Access Anywhere</li>
+          <li>✔ Personalized Vocal Guidance</li>
+        </ul>
+
+        <a href="#" class="btn btn-primary">
+          Join The Academy
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section>
+
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>Your Voice Can Grow</h2>
+
+        <p>
+          With consistency, proper training, and guided practice,
+          anyone can become a stronger and more confident singer.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Start Your Vocal Journey
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+      © 2026 The Vocal Academy • Online Vocal Growth Training
+    </div>
+
+  </footer>
+
+</body>
+</html>
