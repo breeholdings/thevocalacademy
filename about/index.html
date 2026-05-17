@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | The Vocal Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#0d0d12;
+      --card:#171720;
+      --primary:#8b5cf6;
+      --primary-light:#b794ff;
+      --gold:#f4c95d;
+      --text:#ffffff;
+      --muted:#b7b7c7;
+      --border:rgba(255,255,255,0.08);
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      background:rgba(13,13,18,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.4rem;
+      font-weight:800;
+    }
+
+    .logo span{
+      color:var(--primary-light);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:linear-gradient(to right,var(--primary),var(--primary-light));
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    /* HERO */
+
+    .about-hero{
+      min-height:80vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      padding-top:120px;
+    }
+
+    .about-hero::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:rgba(139,92,246,0.2);
+      border-radius:50%;
+      filter:blur(120px);
+      top:-100px;
+      right:-120px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-family:'Montserrat',sans-serif;
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-text h1 span{
+      color:var(--primary-light);
+    }
+
+    .hero-text p{
+      color:var(--muted);
+      font-size:1.1rem;
+      margin-bottom:35px;
+    }
+
+   .hero-image video{
+  width:100%;
+  height:100%;
+  border-radius:30px;
+  object-fit:cover;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+    /* SECTION TITLES */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:2.5rem;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
+    }
+
+    /* STORY SECTION */
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .story-image img{
+      width:80%;
+      border-radius:30px;
+    }
+
+    .story-text h2{
+      font-size:2.5rem;
+      margin-bottom:25px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .story-text p{
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+
+    /* VALUES */
+
+    .grid{
+      display:grid;
+      gap:25px;
+    }
+
+    .three{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .card{
+      background:var(--card);
+      padding:40px 30px;
+      border-radius:24px;
+      border:1px solid var(--border);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(139,92,246,0.4);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    /* MISSION */
+
+    .mission{
+      text-align:center;
+      background:linear-gradient(to right,#151525,#1d1137);
+      border:1px solid var(--border);
+      border-radius:35px;
+      padding:80px 40px;
+    }
+
+    .mission h2{
+      font-size:3rem;
+      margin-bottom:25px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .mission p{
+      max-width:850px;
+      margin:auto;
+      color:var(--muted);
+      font-size:1.1rem;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:3rem;
+      margin-bottom:20px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .cta p{
+      color:var(--muted);
+      margin-bottom:35px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      color:var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .hero-grid,
+      .story,
+      .three{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .section-title h2,
+      .story-text h2,
+      .mission h2,
+      .cta h2{
+        font-size:2.2rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        The <span>Vocal Academy</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/program/">Programs</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training." target="_blank" class="btn btn-primary">Enroll Now</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+
+    <div class="container hero-grid">
+
+      <div class="hero-text">
+
+        <h1>
+          About <span>The Vocal Academy</span>
+        </h1>
+
+        <p>
+          We believe every voice has potential.
+          Our mission is to help aspiring singers build confidence,
+          improve technique, and discover their true sound through
+          personalized online vocal training.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Start Your Journey
+        </a>
+
+      </div>
+
+      <div class="hero-image">
+
+  <video autoplay muted loop playsinline>
+    <source src="Good Morning, Dave Jethro!.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+</div>
+
+    </div>
+
+  </section>
+
+  <!-- OUR STORY -->
+  <section>
+
+    <div class="container story">
+
+      <div class="story-image">
+        <img src="mecrh.PNG">
+      </div>
+
+      <div class="story-text">
+
+        <h2>Our Story</h2>
+
+        <p>
+          The Vocal Academy was created to make quality vocal training
+          accessible to anyone with a passion for singing.
+        </p>
+
+        <p>
+          Many people dream of singing confidently but struggle with
+          fear, lack of guidance, or believing they simply “don’t have the voice.”
+          We are here to change that mindset.
+        </p>
+
+        <p>
+          Through structured online coaching, practical vocal exercises,
+          and personalized support, we help students develop healthy
+          singing habits and grow into confident vocalists.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- VALUES -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>What We Stand For</h2>
+
+        <p>
+          The values that shape every lesson, every session,
+          and every student journey.
+        </p>
+
+      </div>
+
+      <div class="grid three">
+
+        <div class="card">
+
+          <h3>Confidence</h3>
+
+          <p>
+            We help students overcome fear and become confident using their voice.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Growth</h3>
+
+          <p>
+            Every singer can improve with consistency, proper guidance, and practice.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Authenticity</h3>
+
+          <p>
+            We encourage students to discover and embrace their unique sound.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MISSION -->
+  <section>
+
+    <div class="container">
+
+      <div class="mission">
+
+        <h2>Our Mission</h2>
+
+        <p>
+          To inspire and train a new generation of confident singers by
+          providing accessible, modern, and transformational online vocal coaching.
+          We are committed to helping every student unlock their voice,
+          express themselves freely, and grow into the singer they aspire to become.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Why Students Choose Us</h2>
+
+        <p>
+          Personalized training designed around your growth and goals.
+        </p>
+
+      </div>
+
+      <div class="grid three">
+
+        <div class="card">
+
+          <h3>Online Flexibility</h3>
+
+          <p>
+            Learn from anywhere in the world through live online coaching sessions.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Beginner Friendly</h3>
+
+          <p>
+            No experience needed — we guide students step-by-step from the basics.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Personal Attention</h3>
+
+          <p>
+            Every student receives guidance tailored to their vocal goals and ability.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section>
+
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>Your Voice Deserves To Be Heard</h2>
+
+        <p>
+          Join The Vocal Academy and begin your journey toward confident singing.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Join The Academy
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+      © 2026 The Vocal Academy • Online Vocal Training
+    </div>
+
+  </footer>
+
+</body>
+</html>
