@@ -461,7 +461,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" alt="Online Vocal Training">
+        <img src="lug.PNG" alt="Online Vocal Training">
       </div>
 
     </div>
@@ -725,12 +725,22 @@
 
   <!-- FOOTER -->
   <footer>
-
     <div class="container">
-      © 2026 The Vocal Academy • Online Vocal Growth Training
+      &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
+      
+    <p>
+     All rights reserved. | Built and maintained by 
+     <a href="https://www.breefordtech.com" target="_blank" rel="noopener noreferrer">
+      Breeford Technologies
+    </a>
+  </p>
     </div>
-
+    
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
