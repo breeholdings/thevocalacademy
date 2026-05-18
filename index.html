@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <style>
     *{
       margin:0;
@@ -27,6 +25,7 @@
       --text:#ffffff;
       --muted:#b7b7c7;
       --border:rgba(255,255,255,0.08);
+      --pink: #ec4899;
     }
 
     body{
@@ -317,6 +316,10 @@
       color:var(--muted);
     }
 
+    .footer p a {
+       color: var(--pink);
+      }
+
     /* RESPONSIVE */
 
     @media(max-width:992px){
@@ -391,7 +394,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="lug.PNG">
+        <img src="LOGO.png">
       </div>
 
     </div>
@@ -625,9 +628,21 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      © 2026 The Vocal Academy • Online Vocal Training
+      &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
+      
+    <p>
+     All rights reserved. | Built and maintained by 
+     <a href="https://www.breefordtech.com" target="_blank" rel="noopener noreferrer">
+      Breeford Technologies
+    </a>
+  </p>
     </div>
+    
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
