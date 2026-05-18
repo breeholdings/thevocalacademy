@@ -3,13 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Programs | The Vocal Academy</title>
+  <title>The Vocal Academy | Online Vocal Training</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Standard favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- PNG favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+
+<!-- SVG favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Android / Chrome -->
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Safari Pinned Tab -->
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  
   <style>
 
     *{
@@ -27,6 +51,7 @@
       --text:#ffffff;
       --muted:#b7b7c7;
       --border:rgba(255,255,255,0.08);
+      --pink: #ec4899;
     }
 
     body{
@@ -51,8 +76,6 @@
     section{
       padding:100px 0;
     }
-
-    /* NAVBAR */
 
     nav{
       position:fixed;
@@ -123,10 +146,8 @@
       color:black;
     }
 
-    /* HERO */
-
     .hero{
-      min-height:80vh;
+      min-height:90vh;
       display:flex;
       align-items:center;
       padding-top:120px;
@@ -184,8 +205,6 @@
       box-shadow:0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* SECTION TITLES */
-
     .section-title{
       text-align:center;
       margin-bottom:70px;
@@ -202,8 +221,6 @@
       max-width:700px;
       margin:auto;
     }
-
-    /* MAIN PROGRAM */
 
     .program-box{
       background:linear-gradient(180deg,#171720,#101015);
@@ -247,8 +264,6 @@
       font-size:0.95rem;
     }
 
-    /* LEVELS */
-
     .levels{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -277,8 +292,6 @@
       color:var(--muted);
     }
 
-    /* SCHEDULE */
-
     .schedule{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -303,75 +316,97 @@
       color:var(--muted);
     }
 
-    /* PRICING */
-
     .pricing{
-      max-width:700px;
-      margin:auto;
-      background:linear-gradient(to right,#151525,#1d1137);
-      border-radius:35px;
-      padding:70px 40px;
-      border:1px solid var(--border);
-      text-align:center;
-    }
+  max-width: 560px; /* reduced width */
+  margin: auto;
+  background: linear-gradient(to right, #151525, #1d1137);
+  border-radius: 24px; /* slightly smaller corners */
+  padding: 45px 28px; /* reduced inner spacing */
+  border: 1px solid var(--border);
+  text-align: center;
+}
 
-    .pricing h2{
-      font-family:'Montserrat',sans-serif;
-      font-size:3rem;
-      margin-bottom:15px;
-    }
+.pricing h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem; /* reduced heading size */
+  margin-bottom: 12px;
+}
 
-    .price{
-      font-size:4rem;
-      font-weight:800;
-      color:var(--gold);
-      margin:20px 0;
-      font-family:'Montserrat',sans-serif;
-    }
+.price{
+  font-size: 3rem; /* reduced price size */
+  font-weight: 800;
+  color: var(--gold);
+  margin: 16px 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
-    .pricing p{
-      color:var(--muted);
-      margin-bottom:30px;
-    }
+.pricing p{
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-    .pricing ul{
-      list-style:none;
-      margin-bottom:40px;
-    }
+.pricing ul{
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 0;
+}
 
-    .pricing ul li{
-      margin-bottom:15px;
-      color:#d8d8e8;
-    }
+.pricing ul li{
+  margin-bottom: 12px;
+  color: #d8d8e8;
+  font-size: 0.95rem;
+}
 
-    /* CTA */
+.cta{
+  text-align: center;
+}
 
-    .cta{
-      text-align:center;
-    }
+.cta h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem; /* reduced size */
+  margin-bottom: 18px;
+}
 
-    .cta h2{
-      font-family:'Montserrat',sans-serif;
-      font-size:3rem;
-      margin-bottom:20px;
-    }
+.cta p{
+  color: var(--muted);
+  max-width: 560px; /* reduced paragraph width */
+  margin: auto auto 28px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-    .cta p{
-      color:var(--muted);
-      max-width:700px;
-      margin:auto auto 35px;
-    }
+/* Mobile responsiveness */
+@media (max-width: 768px){
+  .pricing{
+    max-width: 90%;
+    padding: 35px 22px;
+    border-radius: 20px;
+  }
 
-    /* FOOTER */
+  .pricing h2,
+  .cta h2{
+    font-size: 2rem;
+  }
+
+  .price{
+    font-size: 2.5rem;
+  }
+}
 
     footer{
-      padding:40px 0;
-      border-top:1px solid var(--border);
-      text-align:center;
-      color:var(--muted);
-    }
+  padding:8px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:var(--muted);
+  font-size:0.8rem;
+  line-height:1.3;
+}
 
-    /* RESPONSIVE */
+    footer a{
+      color:var(--pink);
+    }
 
     @media(max-width:992px){
 
@@ -423,9 +458,13 @@
         <a href="/about/">About</a>
         <a href="/program/">Programs</a>
         <a href="/contact/">Contact</a>
-        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training." target="_blank" class="btn btn-primary">Enroll Now</a>
-      </div>
 
+        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
+        target="_blank"
+        class="btn btn-primary">
+          Enroll Now
+        </a>
+      </div>
 
     </div>
 
@@ -439,59 +478,65 @@
       <div class="hero-text">
 
         <h1>
-          Online <span>Vocal Growth</span> Training
+          Professional <span>Online Vocal Training</span>
         </h1>
 
         <p>
-          A focused online vocal training program designed to help students
-          improve singing ability, strengthen the voice, and build vocal confidence
-          through consistent guided practice.
+          Structured online vocal coaching designed to help singers
+          grow vocally, musically, and professionally through guided
+          training, vocal drills, assignments, and consistent evaluation.
         </p>
 
         <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">
+
+          <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
+          class="btn btn-primary"
+          target="_blank">
             Join The Academy
           </a>
 
-          <a href="#" class="btn btn-outline">
+          <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20book%20a%20vocal%20assessment."
+          class="btn btn-outline"
+          target="_blank">
             Book Assessment
           </a>
+
         </div>
 
       </div>
 
       <div class="hero-image">
-        <img src="/lug.PNG" alt="Online Vocal Training">
+        <img src="/lug.PNG" alt="The Vocal Academy">
       </div>
 
     </div>
 
   </section>
 
-  <!-- MAIN PROGRAM -->
+  <!-- PROGRAM -->
   <section>
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Our Vocal Growth Program</h2>
+        <h2>Our Vocal Training Program</h2>
 
         <p>
-          We focus entirely on helping students grow their singing voice through
-          structured online vocal training sessions.
+          Professional online vocal development sessions focused on
+          technique, confidence, consistency, and musical growth.
         </p>
 
       </div>
 
       <div class="program-box">
 
-        <h2>What’s Included</h2>
+        <h2>What Students Receive</h2>
 
         <p>
-          Students attend live online classes every week where we focus on
-          strengthening the voice, improving vocal control, and developing
-          healthy singing techniques.
+          Students attend live online classes every week with practical
+          coaching, guided exercises, vocal drills, assignments,
+          and personalized feedback.
         </p>
 
         <div class="features">
@@ -499,42 +544,42 @@
           <div class="feature">
             <h3>4 Classes Per Week</h3>
             <p>
-              Consistent weekly training designed for steady vocal improvement.
+              Structured weekly coaching sessions for consistent growth.
             </p>
           </div>
 
           <div class="feature">
             <h3>1 Hour Per Session</h3>
             <p>
-              Focused live online coaching sessions with guided exercises.
-            </p>
-          </div>
-
-          <div class="feature">
-            <h3>Monthly Enrollment</h3>
-            <p>
-              Students join through a simple monthly subscription model.
-            </p>
-          </div>
-
-          <div class="feature">
-            <h3>Live Online Training</h3>
-            <p>
-              Learn from anywhere through interactive virtual classes.
+              Focused live online training and guided practice.
             </p>
           </div>
 
           <div class="feature">
             <h3>Breath Control Training</h3>
             <p>
-              Develop proper breathing techniques for stronger singing.
+              Build stronger breathing support and vocal stamina.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Pitch & Ear Training</h3>
+            <p>
+              Improve pitch accuracy and harmony development.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Song Interpretation</h3>
+            <p>
+              Learn expression, musical dynamics, and delivery.
             </p>
           </div>
 
           <div class="feature">
             <h3>Voice Strengthening</h3>
             <p>
-              Build vocal power, flexibility, and vocal confidence.
+              Develop vocal confidence, tone, flexibility, and projection.
             </p>
           </div>
 
@@ -546,17 +591,137 @@
 
   </section>
 
-  <!-- LEVELS -->
+  <!-- TRAININGS -->
   <section>
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Training Levels</h2>
+        <h2>Vocal Trainings Included</h2>
 
         <p>
-          Students grow progressively based on their vocal ability and improvement.
+          Training sessions focus on helping students build both
+          technical skill and musical confidence.
+        </p>
+
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <h3>Vocal Warmups</h3>
+          <p>Daily vocal conditioning and preparation exercises.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Voice Projection</h3>
+          <p>Develop stronger and clearer voice delivery.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Range Expansion</h3>
+          <p>Exercises designed to safely expand vocal range.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Harmony Singing</h3>
+          <p>Improve harmony recognition and vocal blending.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Timing & Rhythm</h3>
+          <p>Build musical timing, rhythm, and consistency.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Performance Coaching</h3>
+          <p>Microphone, stage confidence, and live performance training.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ONLINE PLATFORMS -->
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Train From Anywhere</h2>
+
+      <p>
+        All vocal training sessions are conducted online,
+        allowing students to learn comfortably from any location.
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+
+        <h3>Zoom Classes</h3>
+
+        <p>
+          Join professional live vocal sessions through Zoom meetings.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <h3>Google Meet Sessions</h3>
+
+        <p>
+          Attend interactive vocal coaching sessions through Google Meet.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <h3>WhatsApp Video Training</h3>
+
+        <p>
+          Flexible one-on-one and guided practice sessions via WhatsApp Video.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <h3>Learn Anywhere</h3>
+
+        <p>
+          Access training from home using your smartphone, tablet, or laptop.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- ASSIGNMENTS -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Assignments & Evaluation</h2>
+
+        <p>
+          Students receive practical assignments and continuous feedback
+          to ensure steady professional growth.
         </p>
 
       </div>
@@ -565,33 +730,33 @@
 
         <div class="level-card">
 
-          <h3>Beginner Level</h3>
+          <h3>Practice Assignments</h3>
 
           <p>
-            For students learning basic vocal control, breathing,
-            pitch accuracy, and singing confidence.
+            Recording practice videos, learning songs,
+            harmony practice, and technique repetition sessions.
           </p>
 
         </div>
 
         <div class="level-card">
 
-          <h3>Intermediate Level</h3>
+          <h3>Weekly Feedback</h3>
 
           <p>
-            Focused on improving vocal strength, consistency,
-            range, and vocal flexibility.
+            Receive detailed evaluation on vocal improvement,
+            confidence, pitch accuracy, and technical growth.
           </p>
 
         </div>
 
         <div class="level-card">
 
-          <h3>Advanced Level</h3>
+          <h3>Professional Growth</h3>
 
           <p>
-            Designed for singers refining tone, control,
-            vocal expression, and technical precision.
+            Continuous assessments help students track progress
+            professionally and consistently.
           </p>
 
         </div>
@@ -602,96 +767,218 @@
 
   </section>
 
-  <!-- WEEKLY SCHEDULE -->
+  <!-- PROGRAM GOALS -->
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Goal Of The Program</h2>
+
+      <p>
+        The Vocal Academy is designed to help students grow
+        vocally, musically, and professionally through
+        intentional and structured training.
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>Stronger Vocals</h3>
+        <p>
+          Build healthier, stronger, and more controlled vocals.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Better Technique</h3>
+        <p>
+          Improve singing technique through guided vocal exercises.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Musical Confidence</h3>
+        <p>
+          Develop confidence in singing, performance, and expression.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Professional Discipline</h3>
+        <p>
+          Learn consistency, structure, and disciplined practice habits.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Practice Consistency</h3>
+        <p>
+          Maintain steady vocal growth through assignments and repetition.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Live Performance Ability</h3>
+        <p>
+          Improve stage confidence and live singing performance skills.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCHEDULING -->
+<section>
+
+  <div class="container">
+
+    <div class="program-box">
+
+      <h2>Flexible Scheduling</h2>
+
+      <p>
+        Class days and training times are agreed upon based on
+        student availability to ensure convenience, consistency,
+        and effective participation throughout the program.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PAYMENT INFORMATION -->
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Payment Information</h2>
+
+      <p>
+        Enrollment is confirmed once monthly payment has been completed.
+      </p>
+
+    </div>
+
+    <div class="program-box">
+
+      <p>
+        Payment for the vocal training program is made monthly
+        before the beginning of classes to secure your slot.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+
+          <h3>Convenient Payment Methods</h3>
+
+          <p>
+            Payments can be made through Mobile Money,
+            bank transfer, or other agreed digital platforms.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <h3>Confirmed Enrollment</h3>
+
+          <p>
+            Once payment is confirmed, students receive the
+            class schedule, assignments, training structure,
+            and online session access details.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <h3>Secure Your Slot</h3>
+
+          <p>
+            Monthly payment helps reserve your training position
+            and maintain consistency throughout the program.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <h3>Professional Learning Experience</h3>
+
+          <p>
+            Every student receives structured guidance aimed at
+            long-term vocal and musical improvement.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- REQUIREMENTS -->
   <section>
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Weekly Training Schedule</h2>
+        <h2>What Students Need</h2>
 
         <p>
-          Each week is structured to help students consistently improve different areas of the voice.
+          A few simple essentials are required to participate
+          fully in the online training program.
         </p>
 
       </div>
 
-      <div class="schedule">
+      <div class="features">
 
-        <div class="day">
-
-          <h3>Monday</h3>
-
-          <p>
-            Breath control and vocal warmups.
-          </p>
-
+        <div class="feature">
+          <h3>Smartphone or Laptop</h3>
+          <p>Any device capable of joining online sessions.</p>
         </div>
 
-        <div class="day">
-
-          <h3>Tuesday</h3>
-
-          <p>
-            Pitch training and vocal accuracy exercises.
-          </p>
-
+        <div class="feature">
+          <h3>Stable Internet</h3>
+          <p>Reliable internet connection for uninterrupted classes.</p>
         </div>
 
-        <div class="day">
-
-          <h3>Thursday</h3>
-
-          <p>
-            Voice strengthening and vocal range development.
-          </p>
-
+        <div class="feature">
+          <h3>Earphones/Headphones</h3>
+          <p>Helpful for clearer listening and vocal monitoring.</p>
         </div>
 
-        <div class="day">
-
-          <h3>Friday</h3>
-
-          <p>
-            Vocal techniques and guided singing practice.
-          </p>
-
+        <div class="feature">
+          <h3>Quiet Practice Space</h3>
+          <p>Improves concentration and vocal performance.</p>
         </div>
 
-      </div>
+        <div class="feature">
+          <h3>Commitment To Practice</h3>
+          <p>Consistency and discipline are key to improvement.</p>
+        </div>
 
-    </div>
-
-  </section>
-
-  <!-- PRICING -->
-  <section>
-
-    <div class="container">
-
-      <div class="pricing">
-
-        <h2>Monthly Membership</h2>
-
-        <div class="price">$XX</div>
-
-        <p>
-          Full access to weekly live online vocal training sessions.
-        </p>
-
-        <ul>
-          <li>✔ 4 Live Classes Weekly</li>
-          <li>✔ 1 Hour Per Session</li>
-          <li>✔ Vocal Growth Exercises</li>
-          <li>✔ Beginner Friendly</li>
-          <li>✔ Online Access Anywhere</li>
-          <li>✔ Personalized Vocal Guidance</li>
-        </ul>
-
-        <a href="#" class="btn btn-primary">
-          Join The Academy
-        </a>
+        <div class="feature">
+          <h3>Passion To Grow</h3>
+          <p>A willingness to learn and improve musically.</p>
+        </div>
 
       </div>
 
@@ -706,15 +993,18 @@
 
       <div class="cta">
 
-        <h2>Your Voice Can Grow</h2>
+        <h2>Start Growing Your Voice Today</h2>
 
         <p>
-          With consistency, proper training, and guided practice,
-          anyone can become a stronger and more confident singer.
+          Join The Vocal Academy and receive structured professional
+          vocal training designed to strengthen your voice,
+          improve technique, and build musical confidence.
         </p>
 
-        <a href="#" class="btn btn-primary">
-          Start Your Vocal Journey
+        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
+        class="btn btn-primary"
+        target="_blank">
+          Enroll Via WhatsApp
         </a>
 
       </div>
@@ -725,17 +1015,21 @@
 
   <!-- FOOTER -->
   <footer>
+
     <div class="container">
+      <br>
+
       &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
-      
-    <p>
-     All rights reserved. | Built and maintained by 
-     <a href="https://www.breefordtech.com" target="_blank" rel="noopener noreferrer">
-      Breeford Technologies
-    </a>
-  </p>
+
+      <p>
+        All rights reserved. | Built and maintained by
+        <a href="https://www.breefordtech.com" target="_blank">
+          Breeford Technologies
+        </a>
+      </p>
+
     </div>
-    
+
   </footer>
 
   <script>
