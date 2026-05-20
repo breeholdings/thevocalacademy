@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <!-- Standard favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -49,7 +50,8 @@
   --text:#ffffff;
   --muted:#b7b7c7;
   --border:rgba(255,255,255,0.08);
-  --pink: #ec4899;
+  --pink:#ec4899;
+  
 }
 
 body{
@@ -74,6 +76,43 @@ a{
 /* 🔥 REDUCED SECTION SPACING */
 section{
   padding:60px 0;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  z-index:1100;
+}
+
+.hamburger span{
+  width:24px;
+  height:2px;
+  background:white;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+/* OVERLAY */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  z-index:900;
+}
+
+.overlay.active{
+  opacity:1;
+  visibility:visible;
 }
 
 /* NAV */
@@ -398,8 +437,130 @@ footer a{
     padding:25px;
   }
 
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+  section{
+    padding:55px 0;
+  }
+
+  .hero-grid,
+  .story,
+  .three{
+    grid-template-columns:1fr;
+  }
+
+  .hero-text{
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:2.7rem;
+  }
+
+  .section-title h2,
+  .story-text h2,
+  .mission h2,
+  .cta h2{
+    font-size:2rem;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hamburger{
+    display:flex;
+  }
+
   .nav-links{
-    display:none;
+    position:fixed;
+    top:0;
+    right:0;
+    width:260px;
+    height:auto;
+    background:#111118;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:90px 24px;
+    gap:22px;
+    transform:translateX(100%);
+    transition:0.3s ease;
+    z-index:999;
+  }
+
+  .nav-links.active{
+    transform:translateX(0);
+  }
+
+  .hero-text h1{
+    font-size:2.2rem;
+  }
+
+  .hero-text p{
+    font-size:0.95rem;
+  }
+
+  .section-title h2,
+  .story-text h2,
+  .mission h2,
+  .cta h2{
+    font-size:1.7rem;
+  }
+
+  .mission{
+    padding:45px 20px;
+  }
+
+  .card{
+    padding:24px 20px;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  section{
+    padding:45px 0;
+  }
+
+  .about-hero{
+    min-height:auto;
+    padding-top:120px;
+    padding-bottom:50px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+  .hero-text h1{
+    font-size:1.9rem;
+  }
+
+  .logo{
+    font-size:1rem;
+  }
+
+  .section-title h2,
+  .story-text h2,
+  .mission h2,
+  .cta h2{
+    font-size:1.5rem;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  .nav-links{
+    width:220px;
   }
 }
 
@@ -408,31 +569,47 @@ footer a{
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
+  <!-- NAVBAR -->
 
-    <div class="container nav-wrapper">
+<nav>
 
-      <div class="logo">
-        The <span>Vocal Academy</span>
-      </div>
+  <div class="container nav-wrapper">
 
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/program/">Programs</a>
-        <a href="/contact/">Contact</a>
+    <div class="logo">
+      The <span>Vocal Academy</span>
+    </div>
 
-        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="nav-links" id="navLinks">
+
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/program/">Programs</a>
+      <a href="/contact/">Contact</a>
+
+      <a
+        href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
         target="_blank"
-        class="btn btn-primary">
-          Enroll Now
-        </a>
-      </div>
+        class="btn btn-primary"
+      >
+        Enroll Now
+      </a>
 
     </div>
 
-  </nav>
+  </div>
+
+</nav>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -978,27 +1155,59 @@ footer a{
   </section>
 
   <!-- FOOTER -->
-  <footer>
 
-    <div class="container">
-      <br>
+<footer>
 
-      &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
+  <div class="container">
 
-      <p>
-        All rights reserved. | Built and maintained by
-        <a href="https://www.breefordtech.com" target="_blank">
-          Breeford Technologies
-        </a>
-      </p>
+    <br>
 
-    </div>
+    &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
 
-  </footer>
+    <p>
+      All rights reserved. | Built and maintained by
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+      <a href="https://www.breefordtech.com" target="_blank">
+        Breeford Technologies
+      </a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  const overlay = document.getElementById("overlay");
+
+  function closeMenu() {
+    navLinks.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
+
+  // Close when clicking overlay
+  overlay.addEventListener("click", closeMenu);
+
+  // Close when clicking a nav link
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Footer year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
