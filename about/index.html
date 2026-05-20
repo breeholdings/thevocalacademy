@@ -10,7 +10,29 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  
+  <!-- Standard favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- PNG favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+
+<!-- SVG favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Android / Chrome -->
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Safari Pinned Tab -->
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
 
 <style>
 
@@ -157,7 +179,7 @@ nav{
   opacity:0;
   visibility:hidden;
   transition:0.3s;
-  z-index:998;
+  z-index:900;
 }
 
 .overlay.active{
@@ -165,7 +187,7 @@ nav{
   visibility:visible;
 }
 
-/* HERO */
+3/* HERO */
 
 .about-hero{
   min-height:100vh;
@@ -326,6 +348,7 @@ nav{
 }
 
 /* FOOTER */
+
 footer{
   padding:10px 0;
   border-top:1px solid var(--border);
@@ -382,7 +405,7 @@ footer a{
     top:0;
     right:0;
     width:260px;
-    height:100vh;
+    height:auto;
     background:#111118;
     flex-direction:column;
     align-items:flex-start;
@@ -470,282 +493,310 @@ footer a{
 <body>
 
 <!-- NAVBAR -->
-  <nav>
+
+<nav>
+
   <div class="container nav-wrapper">
-    
+
     <div class="logo">
       The <span>Vocal Academy</span>
     </div>
 
-    <!-- Hamburger button -->
+    <!-- Hamburger -->
     <button class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/program/">Programs</a>
-        <a href="/contact/">Contact</a>
-        <a href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training." target="_blank" class="btn btn-primary">Enroll Now</a>
-      </div>
+    <!-- Nav Links -->
+    <div class="nav-links" id="navLinks">
 
-    </div>
-  </nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/program/">Programs</a>
+      <a href="/contact/">Contact</a>
 
-  <!-- HERO -->
-  <section class="about-hero">
-
-    <div class="container hero-grid">
-
-      <div class="hero-text">
-
-        <h1>
-          About <span>The Vocal Academy</span>
-        </h1>
-
-        <p>
-          We believe every voice has potential.
-          Our mission is to help aspiring singers build confidence,
-          improve technique, and discover their true sound through
-          personalized online vocal training.
-        </p>
-
-        <a href="#" class="btn btn-primary">
-          Start Your Journey
-        </a>
-
-      </div>
-
-      <div class="hero-image">
-
-  <video autoplay muted loop playsinline>
-    <source src="/Good Morning, Dave Jethro!.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-</div>
+      <a
+        href="https://wa.me/256787380666?text=Hello%20The%20Vocal%20Academy%2C%20I%20would%20like%20to%20join%20the%20online%20vocal%20training."
+        target="_blank"
+        class="btn btn-primary"
+      >
+        Enroll Now
+      </a>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- OUR STORY -->
-  <section>
+</nav>
 
-    <div class="container story">
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
-      <div class="story-image">
-        <img src="/mecrh.PNG">
-      </div>
+<!-- HERO -->
 
-      <div class="story-text">
+<section class="about-hero">
 
-        <h2>Our Story</h2>
+  <div class="container hero-grid">
 
-        <p>
-          The Vocal Academy was created to make quality vocal training
-          accessible to anyone with a passion for singing.
-        </p>
+    <div class="hero-text">
 
-        <p>
-          Many people dream of singing confidently but struggle with
-          fear, lack of guidance, or believing they simply “don’t have the voice.”
-          We are here to change that mindset.
-        </p>
-
-        <p>
-          Through structured online coaching, practical vocal exercises,
-          and personalized support, we help students develop healthy
-          singing habits and grow into confident vocalists.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- VALUES -->
-  <section>
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>What We Stand For</h2>
-
-        <p>
-          The values that shape every lesson, every session,
-          and every student journey.
-        </p>
-
-      </div>
-
-      <div class="grid three">
-
-        <div class="card">
-
-          <h3>Confidence</h3>
-
-          <p>
-            We help students overcome fear and become confident using their voice.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Growth</h3>
-
-          <p>
-            Every singer can improve with consistency, proper guidance, and practice.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Authenticity</h3>
-
-          <p>
-            We encourage students to discover and embrace their unique sound.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- MISSION -->
-  <section>
-
-    <div class="container">
-
-      <div class="mission">
-
-        <h2>Our Mission</h2>
-
-        <p>
-          To inspire and train a new generation of confident singers by
-          providing accessible, modern, and transformational online vocal coaching.
-          We are committed to helping every student unlock their voice,
-          express themselves freely, and grow into the singer they aspire to become.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2>Why Students Choose Us</h2>
-        <p>
-          Personalized training designed around your growth and goals.
-        </p>
-
-      </div>
-
-      <div class="grid three">
-
-        <div class="card">
-
-          <h3>Online Flexibility</h3>
-
-          <p>
-            Learn from anywhere in the world through live online coaching sessions.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Beginner Friendly</h3>
-
-          <p>
-            No experience needed — we guide students step-by-step from the basics.
-          </p>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Personal Attention</h3>
-
-          <p>
-            Every student receives guidance tailored to their vocal goals and ability.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CTA -->
-  <section>
-
-    <div class="container">
-
-      <div class="cta">
-
-        <h2>Your Voice Deserves To Be Heard</h2>
-
-        <p>
-          Join The Vocal Academy and begin your journey toward confident singing.
-        </p>
-
-        <a href="#" class="btn btn-primary">
-          Join The Academy
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-<!-- FOOTER -->
-  <footer>
-
-    <div class="container">
-      <br>
-
-      &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
+      <h1>
+        About <span>The Vocal Academy</span>
+      </h1>
 
       <p>
-        All rights reserved. | Built and maintained by
-        <a href="https://www.breefordtech.com" target="_blank">
-          Breeford Technologies
-        </a>
+        We believe every voice has potential.
+        Our mission is to help aspiring singers build confidence,
+        improve technique, and discover their true sound through
+        personalized online vocal training.
+      </p>
+
+      <a href="#" class="btn btn-primary">
+        Start Your Journey
+      </a>
+
+    </div>
+
+    <div class="hero-image">
+
+      <video autoplay muted loop playsinline>
+        <source src="/Good Morning, Dave Jethro!.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OUR STORY -->
+
+<section>
+
+  <div class="container story">
+
+    <div class="story-image">
+      <img src="/mecrh.PNG" alt="The Vocal Academy">
+    </div>
+
+    <div class="story-text">
+
+      <h2>Our Story</h2>
+
+      <p>
+        The Vocal Academy was created to make quality vocal training
+        accessible to anyone with a passion for singing.
+      </p>
+
+      <p>
+        Many people dream of singing confidently but struggle with
+        fear, lack of guidance, or believing they simply “don’t have the voice.”
+        We are here to change that mindset.
+      </p>
+
+      <p>
+        Through structured online coaching, practical vocal exercises,
+        and personalized support, we help students develop healthy
+        singing habits and grow into confident vocalists.
       </p>
 
     </div>
 
-  </footer>
+  </div>
 
-  <script>
+</section>
+
+<!-- VALUES -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>What We Stand For</h2>
+
+      <p>
+        The values that shape every lesson, every session,
+        and every student journey.
+      </p>
+
+    </div>
+
+    <div class="grid three">
+
+      <div class="card">
+
+        <h3>Confidence</h3>
+
+        <p>
+          We help students overcome fear and become confident using their voice.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Growth</h3>
+
+        <p>
+          Every singer can improve with consistency, proper guidance, and practice.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Authenticity</h3>
+
+        <p>
+          We encourage students to discover and embrace their unique sound.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MISSION -->
+
+<section>
+
+  <div class="container">
+
+    <div class="mission">
+
+      <h2>Our Mission</h2>
+
+      <p>
+        To inspire and train a new generation of confident singers by
+        providing accessible, modern, and transformational online vocal coaching.
+        We are committed to helping every student unlock their voice,
+        express themselves freely, and grow into the singer they aspire to become.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Why Students Choose Us</h2>
+
+      <p>
+        Personalized training designed around your growth and goals.
+      </p>
+
+    </div>
+
+    <div class="grid three">
+
+      <div class="card">
+
+        <h3>Online Flexibility</h3>
+
+        <p>
+          Learn from anywhere in the world through live online coaching sessions.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Beginner Friendly</h3>
+
+        <p>
+          No experience needed — we guide students step-by-step from the basics.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Personal Attention</h3>
+
+        <p>
+          Every student receives guidance tailored to their vocal goals and ability.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>Your Voice Deserves To Be Heard</h2>
+
+      <p>
+        Join The Vocal Academy and begin your journey toward confident singing.
+      </p>
+
+      <a href="#" class="btn btn-primary">
+        Join The Academy
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <br>
+
+    &copy; <span id="year"></span> The Vocal Academy • Online Vocal Training
+
+    <p>
+      All rights reserved. | Built and maintained by
+
+      <a href="https://www.breefordtech.com" target="_blank">
+        Breeford Technologies
+      </a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
   const overlay = document.getElementById("overlay");
 
-  function openMenu(){
-    navLinks.classList.add("active");
-    overlay.classList.add("active");
-  }
-
-  function closeMenu(){
+  function closeMenu() {
     navLinks.classList.remove("active");
     overlay.classList.remove("active");
   }
@@ -755,18 +806,19 @@ footer a{
     overlay.classList.toggle("active");
   });
 
-  // tap outside menu closes it
+  // Close when clicking overlay
   overlay.addEventListener("click", closeMenu);
 
-  // optional: close when clicking a link
+  // Close when clicking a nav link
   navLinks.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", closeMenu);
   });
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Footer year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+</script>
 
 </body>
 </html>
