@@ -338,70 +338,63 @@ footer a{
   color:var(--pink);
 }
 
-/* MOBILE */
-@media(max-width:992px){
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 
-  section{
-    padding:45px 0;
-  }
-
-  .hero-grid,
-  .levels,
-  .schedule,
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .hero-text h1{
-    font-size:2.5rem;
-  }
-
-  .section-title h2{
-    font-size:2rem;
-  }
-
-  .program-box{
-    padding:25px;
-  }
-
-}
-
-/* TABLET */
+/* LARGE TABLETS */
 
 @media(max-width:992px){
 
   section{
-    padding:55px 0;
+    padding:70px 0;
   }
 
-  .hero-grid,
-  .story,
-  .three{
+  .hero{
+    min-height:auto;
+    padding-top:140px;
+    padding-bottom:70px;
+  }
+
+  .hero-content h1{
+    font-size:3rem;
+  }
+
+  .contact-wrapper{
     grid-template-columns:1fr;
+    gap:30px;
   }
 
-  .hero-text{
-    text-align:center;
+  .contact-card{
+    padding:35px;
   }
 
-  .hero-text h1{
-    font-size:2.7rem;
-  }
-
-  .section-title h2,
-  .story-text h2,
-  .mission h2,
   .cta h2{
-    font-size:2rem;
+    font-size:2.3rem;
   }
+
 }
 
-/* MOBILE */
+/* TABLETS */
 
 @media(max-width:768px){
 
+  .container{
+    width:92%;
+  }
+
+  section{
+    padding:60px 0;
+  }
+
+  /* NAVIGATION */
+
   .hamburger{
     display:flex;
+  }
+
+  .nav-wrapper{
+    padding:18px 0;
   }
 
   .nav-links{
@@ -413,38 +406,70 @@ footer a{
     background:#111118;
     flex-direction:column;
     align-items:flex-start;
-    padding:90px 24px;
+    padding:100px 24px 40px;
     gap:22px;
     transform:translateX(100%);
     transition:0.3s ease;
-    z-index:999;
+    z-index:1000;
+    overflow-y:auto;
   }
 
   .nav-links.active{
     transform:translateX(0);
   }
 
-  .hero-text h1{
-    font-size:2.2rem;
+  .nav-links .btn{
+    width:100%;
+    text-align:center;
   }
 
-  .hero-text p{
-    font-size:0.95rem;
+  /* HERO */
+
+  .hero{
+    padding-top:130px;
+    padding-bottom:50px;
   }
 
-  .section-title h2,
-  .story-text h2,
-  .mission h2,
-  .cta h2{
+  .hero-content h1{
+    font-size:2.4rem;
+    line-height:1.2;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
+
+  /* CONTACT */
+
+  .contact-card{
+    padding:28px;
+    border-radius:24px;
+  }
+
+  .contact-card h2{
     font-size:1.7rem;
   }
 
-  .mission{
-    padding:45px 20px;
+  input,
+  textarea{
+    padding:16px 18px;
+    font-size:0.95rem;
   }
 
-  .card{
-    padding:24px 20px;
+  /* CTA */
+
+  .cta{
+    padding:60px 24px;
+    border-radius:28px;
+  }
+
+  .cta h2{
+    font-size:2rem;
+    line-height:1.2;
+  }
+
+  .cta p{
+    font-size:0.96rem;
   }
 
   .btn{
@@ -452,43 +477,152 @@ footer a{
     text-align:center;
   }
 
-  section{
-    padding:45px 0;
-  }
-
-  .about-hero{
-    min-height:auto;
-    padding-top:120px;
-    padding-bottom:50px;
-  }
 }
 
-/* SMALL PHONES */
+/* MOBILE PHONES */
 
 @media(max-width:480px){
 
-  .hero-text h1{
-    font-size:1.9rem;
+  .container{
+    width:94%;
+  }
+
+  section{
+    padding:50px 0;
   }
 
   .logo{
     font-size:1rem;
   }
 
-  .section-title h2,
-  .story-text h2,
-  .mission h2,
-  .cta h2{
-    font-size:1.5rem;
+  /* HERO */
+
+  .hero{
+    padding-top:120px;
+    padding-bottom:40px;
   }
 
-  .container{
-    width:94%;
+  .hero::before{
+    width:320px;
+    height:320px;
+    filter:blur(90px);
+    top:-120px;
+    right:-120px;
+  }
+
+  .hero-content h1{
+    font-size:2rem;
+    line-height:1.2;
+    margin-bottom:18px;
+  }
+
+  .hero-content p{
+    font-size:0.95rem;
+  }
+
+  /* CONTACT */
+
+  .contact-wrapper{
+    gap:22px;
+  }
+
+  .contact-card{
+    padding:22px 18px;
+    border-radius:22px;
+  }
+
+  .contact-card h2{
+    font-size:1.45rem;
+    margin-bottom:15px;
+  }
+
+  .contact-card p{
+    font-size:0.95rem;
+    margin-bottom:22px;
+  }
+
+  .contact-info h3{
+    font-size:1rem;
+  }
+
+  .contact-info a,
+  .contact-info p{
+    font-size:0.92rem;
+    word-break:break-word;
+  }
+
+  /* FORM */
+
+  form{
+    gap:16px;
+  }
+
+  input,
+  textarea{
+    padding:15px 16px;
+    border-radius:14px;
+    font-size:0.95rem;
+  }
+
+  textarea{
+    min-height:140px;
+  }
+
+  .btn{
+    padding:15px 20px;
+    font-size:0.95rem;
+  }
+
+  /* CTA */
+
+  .cta{
+    padding:50px 18px;
+    border-radius:24px;
+  }
+
+  .cta h2{
+    font-size:1.6rem;
+    margin-bottom:15px;
+  }
+
+  .cta p{
+    font-size:0.94rem;
+    margin-bottom:25px;
+  }
+
+  /* FOOTER */
+
+  footer{
+    font-size:0.75rem;
+    padding:20px 0;
+  }
+
+  footer p{
+    margin-top:10px;
+  }
+
+}
+
+/* EXTRA SMALL DEVICES */
+
+@media(max-width:360px){
+
+  .hero-content h1{
+    font-size:1.75rem;
+  }
+
+  .contact-card{
+    padding:20px 16px;
+  }
+
+  .cta h2{
+    font-size:1.4rem;
   }
 
   .nav-links{
     width:220px;
   }
+
 }
 
 </style>
